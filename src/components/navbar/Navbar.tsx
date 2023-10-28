@@ -7,17 +7,18 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import { Link, NavLink } from "react-router-dom";
+import Logo from "../../assets/images/BlackLogo.png";
+import { ROUTES } from "../../constant/route";
 
 const navigation = {
   pages: [
-    { name: "Home", href: "/" },
-    { name: "About", href: "/about" },
-    { name: "Products", href: "/products" },
-    { name: "Certification", href: "/certification" },
-    { name: "Contact", href: "/contact" },
+    { name: "Home", href: ROUTES.HOME },
+    { name: "About", href: ROUTES.ABOUT },
+    { name: "Products", href: ROUTES.PRODUCTS },
+    { name: "Certification", href: ROUTES.CERTIFICATION },
+    { name: "Contact", href: ROUTES.CONTACT },
   ],
 };
-
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -69,9 +70,9 @@ const Navbar = () => {
                     <div key={page.name} className="flow-root">
                       <NavLink
                         to={page.href}
-                        className="-m-2 block p-2 font-medium text-gray-900"
+                        className="-m-2 block p-2 font-medium text-gray-900 hover:text-primary"
                       >
-                        {"moin"}
+                        {page.name}
                       </NavLink>
                     </div>
                   ))}
@@ -102,13 +103,9 @@ const Navbar = () => {
 
               {/* Logo */}
               <div className="ml-4 flex lg:ml-0">
-                <Link to={"/"}>
+                <Link to={ROUTES.HOME}>
                   <span className="sr-only">Your Company</span>
-                  <img
-                    className="h-20 w-20"
-                    src="/images/logo/logo-no-background.svg"
-                    alt="logo"
-                  />
+                  <img className="h-20 w-20" src={Logo} alt="logo" />
                 </Link>
               </div>
 
@@ -116,17 +113,16 @@ const Navbar = () => {
               <Popover.Group className="hidden lg:ml-8 lg:block lg:self-stretch">
                 <div className="flex h-full space-x-8">
                   {navigation.pages.map((page) => (
-                    <a
+                    <NavLink
                       key={page.name}
-                      href={page.href}
-                      className="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800"
+                      to={page.href}
+                      className="flex items-center text-sm font-medium text-gray-700 hover:text-primary"
                     >
                       {page.name}
-                    </a>
+                    </NavLink>
                   ))}
                 </div>
               </Popover.Group>
-
               <div className="ml-auto flex items-center">
                 {/* Search */}
                 <div className="flex lg:ml-6">
@@ -139,6 +135,7 @@ const Navbar = () => {
                   </div>
                 </div>
               </div>
+            
             </div>
           </div>
         </nav>
