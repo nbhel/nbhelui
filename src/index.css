@@ -13,7 +13,11 @@
     box-sizing: border-box;
     font-family: "popins";
 }
-  
+ 
+.logo{
+  color: #d48442;
+}
+
 .active{
   color: #f79d2b;
 }
