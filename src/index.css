@@ -13,7 +13,11 @@
     box-sizing: border-box;
     font-family: "popins";
 }
- 
+
+.no-focus-outline:focus {
+  outline: none;
+}
+
 .logo{
   color: #d48442;
 }
