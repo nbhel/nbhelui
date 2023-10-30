@@ -22,6 +22,10 @@
   color: #f79d2b;
 }
 
+.accordion-backgroun{
+  /* background-image: url('./assets//images//accordion-bg.jpg'); */
+}
+
 .container {
     width: 100%;
     margin-right: auto;

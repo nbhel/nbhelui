@@ -2,6 +2,7 @@ import { Fragment, useState } from 'react'
 import { Dialog, Disclosure, Popover, Tab, Transition } from '@headlessui/react'
 import { Bars3Icon, ChevronRightIcon, MagnifyingGlassIcon, QuestionMarkCircleIcon, ShoppingBagIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import Logo from "../../assets/images/new balahanuman logo-PhotoRoom.png";
+import { ROUTES } from '../../constant/route';
 
 const navigation = {
 	categories: [
@@ -18,7 +19,7 @@ const navigation = {
 		{
 			id: 'products',
 			name: 'Products',
-			href: '/products',
+			href: ROUTES.PRODUCTS,
 			sections: [
 				{
 					id: 'fiberglass_&_polyester_braided_cable',
