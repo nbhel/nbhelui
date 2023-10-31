@@ -2,7 +2,8 @@ import { Fragment, useState } from 'react'
 import { Dialog, Disclosure, Popover, Tab, Transition } from '@headlessui/react'
 import { Bars3Icon, ChevronRightIcon, MagnifyingGlassIcon, QuestionMarkCircleIcon, ShoppingBagIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import Logo from "../../assets/images/new balahanuman logo-PhotoRoom.png";
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+import React from 'react';
 
 const navigation = {
 	categories: [
@@ -133,12 +134,9 @@ function classNames(...classes: string[]) {
 
 const App = () => {
   const [open, setOpen] = useState(false)
+  const [showProductsDropdown, setShowProductsDropdown] = useState<string | null>(null);
+  const [showSubProductsDropdown, setSubShowProductsDropdown] = useState<string | null>(null);
   const navigate = useNavigate();
-
-  const handleCategoryClick = (href:any) => {
-    navigate(href);
-    setOpen(false);
-  };
 
   return (
     <>
@@ -319,98 +317,108 @@ const App = () => {
 
                 {/* Flyout menus */}
                 <div className="hidden h-full lg:flex">
-                  <Popover.Group className="inset-x-0 bottom-0 px-4">
+                  <div className="inset-x-0 bottom-0 px-4">
                     <div className="flex h-full justify-center space-x-8">
-                      {navigation.categories.map((category) => (
-                        <Popover as='nav' key={category.name} className="flex">
-                          {({ open }) => (
-                            <>
-                              <div className="relative flex">
-                                <Popover.Button
-                                  as="a"
-                                  href={category.href}
-                                  onClick={() => handleCategoryClick(category.href)}
-                                  className={classNames(
-                                    'relative z-10 flex items-center border-b-2 border-transparent  text-sm font-medium cursor-pointer no-focus-outline',
-                                    // open ? 'text-indigo-600' : 'border-transparent text-gray-700 hover:text-gray-900'
-                                  )}
-                                >
-                                  {category.name}
-                                  <span
-                                      className={classNames(
-                                        open ? 'bg-indigo-600' : '',
-                                        'absolute inset-x-0 mb-1 -bottom-px h-0.5 transition duration-200 ease-out'
-                                      )}
-                                      aria-hidden="true"
-                                    />
-                                </Popover.Button>
-                              </div>
-
-                              {category.sections ?
-                                  <Popover.Panel className=" absolute left-1/2 z-10 mt-5 flex w-screen max-w-min -translate-x-10 translate-y-12 px-4">
-                                    <div className="w-96 shrink rounded-xl bg-white p-4 text-sm font-semibold leading-6 text-gray-900 shadow-lg ring-1 ring-gray-900/5">
-                                    <Tab.Group as="div" className="mt-2">
-                                      {category.sections?.map((item) => (
-                                        <>
-                                            {!item.items ? (
-                                            <Tab
-                                              key={item.name}
-                                              className={classNames(
-                                                  'flex-1 whitespace-nowrap px-1 py-4 text-base font-medium text-gray-900 hover:border-indigo-600 hover:text-indigo-600 hover:border-b-2'
-                                                )
-                                              }
+                    {navigation.categories.map((category) => (
+                      <nav key={category.id} className="flex">
+                        {!category.sections ? (
+                          <div className="relative flex">
+                            <NavLink
+                              to={category.href}
+                              className={classNames(
+                                'relative z-10 flex items-center border-b-2 border-transparent text-sm font-medium no-focus-outline',
+                              )}
+                            >
+                              {category.name}
+                            </NavLink>
+                          </div>
+                        ) : (
+                          <div
+                            onMouseEnter={() => setShowProductsDropdown(category.id)}
+                            onMouseLeave={() => setShowProductsDropdown(null)}
+                            className="relative flex"
+                          >
+                            <NavLink
+                              to={category.href}
+                              className={classNames(
+                                'relative z-10 flex items-center border-b-2 border-transparent text-sm font-medium no-focus-outline',
+                              )}
+                            >
+                              {category.name}
+                              <span
+                                className={classNames(
+                                  open ? 'bg-indigo-600' : '',
+                                  'absolute inset-x-0 mb-1 -bottom-px h-0.5 transition duration-200 ease-out'
+                                )}
+                                aria-hidden="true"
+                              />
+                            </NavLink>
+                            {showProductsDropdown && (
+                              <div className="absolute left-1/2 z-10 mt-5 flex w-screen max-w-min -translate-x-1/2 translate-y-12 px-4">
+                                <div className="w-96 shrink rounded-xl bg-white p-4 text-sm font-semibold leading-6 text-gray-900 shadow-lg ring-1 ring-gray-900/5">
+                                  {category.sections?.map((section, index) => (
+                                    <React.Fragment key={index}>
+                                      <Disclosure>
+                                        
+                                          <>
+                                            <div
+                                              onMouseEnter={() => setSubShowProductsDropdown(section.id)}
+                                              onMouseLeave={() => setSubShowProductsDropdown(null)}
+                                              className="relative flex"
                                             >
-                                              {item.name}
-                                            </Tab>
-                                            ) : (
-                                              <Disclosure as="div">
-                                                  <>
-                                                    <Disclosure.Button
-                                                      key={item.name}
-                                                      className={classNames(
-                                                        'flex items-center w-full text-left rounded-md px-1 py-3 gap-x-3 text-sm leading-6 font-medium text-gray-700 hover:border-indigo-600 hover:text-indigo-600'
-                                                      )}
-                                                    >
-                                                      {item.name}
-                                                      <ChevronRightIcon
-                                                        className={classNames(
-                                                          open ? 'rotate-90 text-gray-500' : 'text-gray-400',
-                                                          'ml-auto h-5 w-5 shrink-0 flex items-center'
+                                              <Disclosure.Button
+                                                key={section.name}
+                                                className={classNames(
+                                                  'flex items-center w-full text-left rounded-md px-1 py-3 gap-x-3 text-sm leading-6 font-medium text-gray-700 hover:border-indigo-600 hover:text-indigo-600'
+                                                )}
+                                              >
+                                                {section.name}
+                                                <ChevronRightIcon
+                                                  className={classNames(
+                                                    open ? 'rotate-90 text-gray-500' : 'text-gray-400',
+                                                    'ml-auto h-5 w-5 shrink-0 flex items-center'
+                                                  )}
+                                                  aria-hidden="true"
+                                                />
+                                              </Disclosure.Button>
+                                            </div>
+                                            {showSubProductsDropdown === section.id && (
+                                              <div className="absolute left-32 z-10 mt-5 flex w-screen max-w-min translate-x-72 -translate-y-16 px-4">
+                                                <div className="w-96 shrink rounded-xl bg-white p-4 text-sm font-semibold leading-6 text-gray-900 shadow-lg ring-1 ring-gray-900/5">
+                                                  {section.items.map((item, index:number) => (
+                                                    <React.Fragment key={`submenu${section.id}_${index}`}>
+                                                      <Disclosure>
+                                                        {() => (
+                                                          <div className="relative flex">
+                                                            <Disclosure.Button
+                                                              className={classNames(
+                                                                'flex items-center w-full text-left rounded-md px-1 py-3 gap-x-3 text-sm leading-6 font-medium text-gray-700 hover:border-indigo-600 hover:text-indigo-600'
+                                                              )}
+                                                            >
+                                                              {item.name}
+                                                            </Disclosure.Button>
+                                                          </div>
                                                         )}
-                                                        aria-hidden="true"
-                                                      />
-                                                    </Disclosure.Button>
-                                                    <Disclosure.Panel as="ul" className="mt-1 px-2">
-                                                      {item.items.map((subProduct) => (
-                                                        <li key={subProduct.name}>
-                                                          {/* 44px */}
-                                                          <Tab
-                                                            key={subProduct.name}
-                                                            className={classNames(
-                                                                'flex-1 items-center whitespace-nowrap overflow-hidden px-3 py-3 text-sm font-medium text-gray-900 hover:border-indigo-600 hover:text-indigo-600 hover:border-b-2'
-                                                              )
-                                                            }
-                                                          >
-                                                            {subProduct.name}
-                                                          </Tab>
-                                                        </li>
-                                                      ))}
-                                                    </Disclosure.Panel>
-                                                  </>
-                                              </Disclosure>
+                                                      </Disclosure>
+                                                    </React.Fragment>
+                                                  ))}
+                                                </div>
+                                              </div>
                                             )}
-                                        </>
-                                      ))}
-                                    </Tab.Group>
-                                    </div>
-                                  </Popover.Panel>
-                              : null }
-                            </>
-                          )}
-                        </Popover>
-                      ))}
+                                          </>
+                                      </Disclosure>
+                                    </React.Fragment>
+                                  ))}
+                                </div>
+                              </div>
+                            )}
+                          </div>
+                        )}
+                      </nav>
+                    ))}
+
                     </div>
-                  </Popover.Group>
+                  </div>
                 </div>
 
                 {/* Search Desktop View */}

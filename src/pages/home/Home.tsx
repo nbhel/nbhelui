@@ -7,7 +7,7 @@ const Home = () => {
           <div className="relative bg-gray-800 px-6 py-32 sm:px-12 sm:py-40 lg:px-16">
             <div className="absolute inset-0 overflow-hidden">
               <img
-                src="https://tailwindui.com/img/ecommerce-images/home-page-03-feature-section-full-width.jpg"
+                src="https://www.benteac.com/Content/uploads/2020659321/20200728152204b5e35e2a686246fd99d3ecebc396c219.jpg"
                 alt=""
                 className="h-full w-full object-cover object-center"
               />
