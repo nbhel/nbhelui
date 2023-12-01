@@ -1,10 +1,10 @@
 import { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {FaCaretDown} from 'react-icons/fa'
 
 const MenuItems = ({ items, depthLevel }:any) => {
   const [dropdown, setDropdown] = useState(false);
-
+  const navigate = useNavigate();
   let ref: any = useRef();
 
   useEffect(() => {
@@ -41,10 +41,11 @@ const MenuItems = ({ items, depthLevel }:any) => {
   depthLevel = depthLevel + 1;
   const dropdownClass = depthLevel > 1 ? 'dropdown-submenu' : '';
 
-  const handleClickEvent = (id:any) => {
-    console.log('Id -->', id)
-  }
-
+  const handleItemClick = (url: string) => {
+    setDropdown(false);
+    navigate(url);
+  };
+  
   return (
     <li
       className="menu-items relative text-sm"
@@ -65,7 +66,13 @@ const MenuItems = ({ items, depthLevel }:any) => {
             {window.innerWidth < 960 && depthLevel === 0 ? (
               items.title
             ) : (
-              <Link className='text-left px-1 py-1 hover:bg-[#f2f2f2]' to={items.url}>{items.title}</Link>
+              <Link 
+                className='text-left px-1 py-1 hover:bg-[#f2f2f2'
+                onClick={() => handleItemClick(items.url)} 
+                to={items.url}
+              >
+                {items.title}
+              </Link>
             )}
 
             {depthLevel > 0 &&
@@ -82,7 +89,7 @@ const MenuItems = ({ items, depthLevel }:any) => {
             }`}
           >
             {items.submenu.map((submenu: any, index:number) => (
-              <div onClick={() => handleClickEvent(submenu.url)}>
+              <div key={`submenu-${index}`}>
                 <MenuItems
                   items={submenu}
                   key={index}
@@ -96,7 +103,7 @@ const MenuItems = ({ items, depthLevel }:any) => {
         <>
           <button
             type="button"
-            className='flex items-center border-none bg-red-500 cursor-pointer w-full text-left px-3 py-4 hover:bg-[#f2f2f2]'
+            className='flex items-center border-none cursor-pointer w-full text-left px-3 py-4 hover:bg-[#f2f2f2]'
             aria-haspopup="menu"
             aria-expanded={dropdown ? 'true' : 'false'}
             onClick={() => setDropdown((prev) => !prev)}
@@ -123,7 +130,14 @@ const MenuItems = ({ items, depthLevel }:any) => {
           </ul>
         </>
       ) : (
-        <Link className='text-left px-3 py-4 hover:bg-[#f2f2f2]' to={items.url}>{items.title}</Link>
+        <Link 
+          className='text-left px-3 py-4 hover:bg-[#f2f2f2]'
+          onClick={
+            () => { handleItemClick(items.url) }}
+          to={items.url}
+        >
+          {items.title}
+        </Link>
       )}
     </li>
   );

@@ -228,7 +228,37 @@ export const submenuDetails = [
       voltage:	'600/1100',
       power:	'6 KV',
       diameter: '0.50 sqmm - 240 sqmm',
-	  }
+	  },
+    features: [
+      'Bunched Tinned Copper As per “IS-8130-1976 Class-5” (TPC)',
+      'Bunched bare copper (BC)',
+      'Bunched Nickle plated copper (NPC)',
+      'Bunched Silver Plated Copper (SPC)',
+      'Bunched Stainless steel & Bare copper (SSBC): Heater special',
+      'Bunched Stainless steel & Tinned copper (SSTC): Heater Special',
+      'Layers of DMD Wrapped & braided with Fiberglass Yarn or Polyester yarn',
+      'Layers of DMDT Wrapped & braided with Fiberglass Yarn or Polyester yarn',
+    ],
+    innerSheath: [
+      'Mylar (Polyester Tape) Wrapped',
+      'Teflon (PTFE) Tape Wrapped',
+      'Silicone extruded conductor',
+      'Kapton Tape Wrapped',
+    ],
+    
+    additionalFeature: [
+      'Very good Thermal Stability',
+      'Very good Dielectric Constant',
+      'Good Resistance to Moisture & Chemicals',
+      'These cables are highly heated and are made to meet your different requirements.',
+      'These cables are having an outstanding and unique combination of electrical, mechanical, thermal and chemical properties.',
+    ],
+    additionalInnerSheath: [
+      'Mylar (Polyester Tape) Wrapped',
+      'Teflon (PTFE) Tape Wrapped',
+      'Silicone extruded conductor',
+      'Kapton Tape Wrapped',
+    ],
 	},
 	{
     id: 'fiberglass_cables',
@@ -248,5 +278,34 @@ export const submenuDetails = [
       power:	'6 KV',
       diameter: '0.50 sqmm - 240 sqmm',
 	  },
+    features: [
+      'Bunched Tinned Copper As per “IS-8130-1976 Class-5” (TPC)',
+      'Bunched bare copper (BC)',
+      'Bunched Nickle plated copper (NPC)',
+      'Bunched Silver Plated Copper (SPC)',
+      'Bunched Stainless steel & Bare copper (SSBC): Heater special',
+      'Bunched Stainless steel & Tinned copper (SSTC): Heater Special',
+      'Layers of DMD Wrapped & braided with Fiberglass Yarn or Polyester yarn',
+      'Layers of DMDT Wrapped & braided with Fiberglass Yarn or Polyester yarn',
+    ],
+    innerSheath: [
+      'Mylar (Polyester Tape) Wrapped',
+      'Teflon (PTFE) Tape Wrapped',
+      'Silicone extruded conductor',
+      'Kapton Tape Wrapped',
+    ],
+    additionalFeature: [
+      'Very good Thermal Stability',
+      'Very good Dielectric Constant',
+      'Good Resistance to Moisture & Chemicals',
+      'These cables are highly heated and are made to meet your different requirements.',
+      'These cables are having an outstanding and unique combination of electrical, mechanical, thermal and chemical properties.',
+    ],
+    additionalInnerSheath: [
+      'Mylar (Polyester Tape) Wrapped',
+      'Teflon (PTFE) Tape Wrapped',
+      'Silicone extruded conductor',
+      'Kapton Tape Wrapped',
+    ],
 	},
 ]

@@ -1,8 +1,8 @@
-import { Fragment, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import { Dialog, Disclosure, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { FunnelIcon, MinusIcon, PlusIcon } from '@heroicons/react/20/solid'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { subDetailsMenu } from '../../helper/menuItems'
 import Product from './Product'
 
@@ -11,6 +11,12 @@ const ProductDetails = () => {
   const [selectedSubmenu, setSelectedSubmenu] = useState(null)
   const navigate = useNavigate();
   
+  const { id } = useParams();
+  useEffect(() => {
+    // Fetch and display product details based on the 'id'
+    console.log('Product ID:', id);
+  }, [id]);
+
   const handleClickGetSubMenuItem = (id: any) => {
     navigate(`/product/${id}`);
   }

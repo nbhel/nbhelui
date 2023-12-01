@@ -39,7 +39,14 @@ const Product = () => {
         if (urlId !== defaultId) {
             navigate(`/products/${initialId}`);
         }
-    }, [urlId, defaultId, navigate]);
+    }, [urlId, defaultId]);
+
+    if (!productDetails) {
+        // Handle case when productDetails is not available
+        return <div className='flex justify-center items-center h-full'>
+                    <p className='text-xl font-semibold text-[#f79d2b]'>No product details available.</p>
+                </div>;
+      }
 
   return (
     <div className="bg-white">
@@ -173,6 +180,48 @@ const Product = () => {
                                 ) : null}
                             </>
                         </table>
+                    </div>
+                </div>
+                <div className='md:grid md:grid-cols-2 gap-x-5'>
+                    {/* Add Features and innerSheth text  */}
+                    <div className="md:grid-cols-1 mt-10 bg-gray-50 p-2">
+                        <p className='text-xl font-semibold text-gray-700 my-2'>Features:</p>
+                        <ul className="list-disc pl-10">
+                        {productDetails?.features?.map((feature: any, index: number) => (
+                            <li key={index}>{feature}</li>
+                        ))}
+                        </ul>
+                    </div>
+
+                    {/* Inner Sheath Section */}
+                    <div className="md:grid-cols-1 mt-10 bg-gray-50 p-2">
+                        <p className='text-xl font-semibold text-gray-700 my-2'>Inner Sheath:</p>
+                        <ul className="list-disc pl-10">
+                        {productDetails?.innerSheath?.map((sheath: any, index: number) => (
+                            <li key={index}>{sheath}</li>
+                        ))}
+                        </ul>
+                    </div>
+                </div>
+                <div className='md:grid md:grid-cols-2 gap-x-5'>
+                    {/* Add Features and innerSheth text  */}
+                    <div className="md:grid-cols-1 mt-10 bg-gray-50 p-2">
+                        <p className='text-xl font-semibold text-gray-700 my-2'>Additional Features:</p>
+                        <ul className="list-disc pl-10">
+                        {productDetails?.additionalFeature?.map((addFeature: any, index: number) => (
+                            <li key={`additional-${index}`}>{addFeature}</li>
+                        ))}
+                        </ul>
+                    </div>
+
+                    {/* Inner Sheath Section */}
+                    <div className="md:grid-cols-1 mt-10 bg-gray-50 p-2">
+                        <p className='text-xl font-semibold text-gray-700 my-2'>Additional Inner Sheath:</p>
+                        <ul className="list-disc pl-10">
+                        {productDetails?.additionalInnerSheath?.map((addSheath: any, index: number) => (
+                            <li key={`additional-${index}`}>{addSheath}</li>
+                        ))}
+                        </ul>
                     </div>
                 </div>
             </div>

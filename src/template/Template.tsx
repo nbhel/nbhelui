@@ -10,6 +10,7 @@ import About from "../pages/about/About";
 import Certification from "../pages/certification/Certification";
 import Contact from "../pages/contact/Contact";
 import ProductDetails from "../pages/products/ProductDetails";
+import Error from "../pages/error/Error";
 
 const Template = () => {
   return (
@@ -24,6 +25,7 @@ const Template = () => {
         <Route path={ROUTES.CERTIFICATION} element={<Certification />} />
         <Route path={ROUTES.CONTACT} element={<Contact />} />
       </Route>
+      <Route path="*" element={<Error/>} />
     </Routes>
   );
 };
