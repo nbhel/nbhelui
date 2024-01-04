@@ -2,7 +2,7 @@ import { Fragment, useEffect, useState } from 'react'
 import { Dialog, Disclosure, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { FunnelIcon, MinusIcon, PlusIcon } from '@heroicons/react/20/solid'
-import { Link, useNavigate, useParams } from 'react-router-dom'
+import { Link, useLocation, useNavigate, useParams } from 'react-router-dom'
 import { subDetailsMenu } from '../../helper/menuItems'
 import Product from './Product'
 
@@ -20,8 +20,9 @@ const ProductDetails = () => {
   const handleClickGetSubMenuItem = (id: any) => {
     navigate(`/product/${id}`);
   }
+  const location = useLocation();
   return (
-    <div className="bg-white">
+    <div className="bg-white" id='product'>
       <div>
         {/* Mobile filter view */}
         <Transition.Root show={mobileFiltersOpen} as={Fragment}>
@@ -104,13 +105,13 @@ const ProductDetails = () => {
           </Dialog>
         </Transition.Root>
         {/* Desktop view */}
-        <main className="mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-baseline justify-between border-b border-gray-200 pb-6 pt-8">
-            <h1 className="text-3xl font-semibold tracking-wide text-gray-600">Products</h1>
+        <main className="max-w-screen-7xl px-4 py-8 mx-auto space-y-12 lg:space-y-6 lg:py-12 lg:px-6">
+          <div className="flex items-baseline justify-between border-b border-gray-200 pb-6">
+            <h1 className="text-4xl font-semibold tracking-wide text-gray-800 ">Products</h1>
 
             {/* Sort */}
             <div className="">
-               <button className='bg-[#f79d2b] p-2 text-white hover:bg-orange-400'>Get Quote</button>
+               <button className='bg-[#268F82] p-2 text-white hover:border border-[#268F82] hover:bg-white hover:text-[#268F82] rounded-lg'>Get Quote</button>
                 <button
                 type="button"
                 className="-m-2 ml-4 p-2 text-gray-400 hover:text-gray-500 sm:ml-6 lg:hidden"
@@ -132,10 +133,10 @@ const ProductDetails = () => {
                       <>
                         <h3 className="-my-3 flow-root">
                             <Disclosure.Button 
-                                className="flex w-full items-center justify-between hover:bg-gray-200 py-5 px-1 text-sm text-gray-400 hover:text-gray-500"
+                                className={`${open ? 'bg-purple-700 text-[#EDDDE7]' : 'text-gray-500'} flex w-full items-center justify-between py-5 px-1 text-sm`}
                                 onClick={() => setSelectedSubmenu(open ? null : section)}
                             >
-                            <span className="font-medium text-gray-900">{section.title}</span>
+                            <span className={`font-medium text-sm ${open ? 'text-[#EDDDE7]' : 'text-gray-600'}`}>{section.title}</span>
                             <span className="ml-6 flex items-center">
                               {open ? (
                                 <MinusIcon className="h-5 w-5" aria-hidden="true" />
@@ -145,13 +146,13 @@ const ProductDetails = () => {
                             </span>
                           </Disclosure.Button>
                         </h3>
-                        <Disclosure.Panel className="pt-6">
-                          <div className="space-y-4">
+                        <Disclosure.Panel className={`py-2 ${open ? 'bg-[#B2A0E9]' : ''}`}>
+                          <div className="">
                             {section.submenu.map((option: any) => (
-                              <div key={option.url} className="flex items-center">
+                              <div key={option.url} className="flex items-center pe-2">
                                 <Link
                                   to={option.url}
-                                  className="ml-3 text-sm text-gray-600 px-1"
+                                  className={`ml-2 py-3 text-sm px-1 w-full ${open ? 'text-black hover:bg-purple-700 hover:text-[#EDDDE7]' : ' text-gray-600'}`}
                                   onClick={() => handleClickGetSubMenuItem(option.url)}
                                 >
                                   {option.title}

@@ -16,7 +16,7 @@ const Template = () => {
   return (
     <Routes>
       <Route element={<Layout />}>
-        <Route path={ROUTES.HOME} index element={<Home />} />
+        <Route index element={<Home />} />
         <Route path={ROUTES.ABOUT} element={<About />} />
         <Route path={ROUTES.PRODUCTS} element={<ProductDetails />}>
           {/* Nested Route for specific product details */}
@@ -24,8 +24,8 @@ const Template = () => {
         </Route>
         <Route path={ROUTES.CERTIFICATION} element={<Certification />} />
         <Route path={ROUTES.CONTACT} element={<Contact />} />
+        <Route path="*" element={<Error/>} />
       </Route>
-      <Route path="*" element={<Error/>} />
     </Routes>
   );
 };

@@ -5,8 +5,8 @@ import Footer from "../../components/footer/Footer";
 const Layout = () => {
   return (
     <>
-      <Navbar />
-      <div className="min-h-[700px]">
+      <Navbar/>
+      <div className="pt-[72px]">
         <Outlet />
       </div>
       <Footer />
