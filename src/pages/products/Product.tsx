@@ -8,7 +8,7 @@ interface IProductDetails {
     images: string[];
     description: {
       brand: string;
-      minimun_Order_quantity: string;
+      minimum_Order_quantity: string;
       color: string;
       material: string;
       length: string;
@@ -19,6 +19,12 @@ interface IProductDetails {
       voltage: string;
       power: string;
       diameter: string;
+      tensile_strength: string;
+      insulation_material: string;
+      reference_standards: string;
+      available_sizes: string;
+      insulation_class: string;
+      size:string;
     };
   }
   
@@ -54,16 +60,16 @@ const Product = () => {
         <div className='mb-3'>
             <p className='sm:text-2xl text-md font-semibold  bg-purple-700 text-[#EDDDE7] shadow-md p-3 rounded-sm'>{productDetails?.title}</p>
         </div>
-        <div className="flex justify-center gap-x-12 py-6 border border-gray-100 shadow-sm my-3 bg-gray-50">
+        <div className="flex justify-center gap-x-12 py-6 border border-gray-100 shadow-sm my-3 bg-gray-100">
           {productDetails?.images.map((image:any, index:number) => (
-            <div key={index} className="max-w-xl rounded-lg">
-              <img src={image} alt={`Product ${index + 1}`} className="h-full w-full object-cover object-center border border-gray-100 p-2 shadow-sm bg-white" />
+            <div key={index} className="max-w-md rounded-lg">
+              <img src={image} alt={`Product ${index + 1}`} className="h-full w-full object-contain border border-gray-100 p-2 shadow-sm bg-white" />
             </div>
           ))}
         </div>
 
         {/* Product form */}
-        <div className="border border-gray-100 shadow-md bg-gray-50 py-6">
+        <div className="border border-gray-100 shadow-md bg-gray-100 py-6">
           <div className='flex justify-center items-center'>
             <button className='p-3 bg-[#268F82] text-white border border-[#268F82] hover:bg-white hover:text-[#268F82] rounded-lg'>Get Quotation</button>
           </div>
@@ -77,6 +83,7 @@ const Product = () => {
                                 {productDetails ? (
                                      <>
                                         <thead>
+                                            {productDetails.description.brand?.length > 0 ?
                                             <tr className="even:bg-gray-100">
                                                 <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-md font-medium text-gray-900 sm:pl-3">
                                                     Brand
@@ -85,16 +92,20 @@ const Product = () => {
                                                     {productDetails.description.brand}
                                                 </td>
                                             </tr>
+                                            : null}
                                         </thead>
                                         <tbody className="bg-white" >
+                                            {productDetails.description.minimum_Order_quantity?.length > 0 ?
                                             <tr className="even:bg-gray-100">
                                                 <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-md font-medium text-gray-900 sm:pl-3">
-                                                    Minimun Order Quantity
+                                                    Minimum Order Quantity
                                                 </th>
                                                 <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-500 sm:pl-3">
-                                                    {productDetails.description.minimun_Order_quantity}
+                                                    {productDetails.description.minimum_Order_quantity}
                                                 </td>
                                             </tr>
+                                            : null}
+                                            {productDetails.description.color?.length > 0 ?
                                             <tr className="even:bg-gray-100">
                                                 <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-md font-medium text-gray-900 sm:pl-3">
                                                     Color
@@ -103,6 +114,8 @@ const Product = () => {
                                                     {productDetails.description.color}
                                                 </td>
                                             </tr>
+                                            : null}
+                                            {productDetails.description.material?.length > 0 ?
                                             <tr className="even:bg-gray-100">
                                                 <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-md font-medium text-gray-900 sm:pl-3">
                                                     Material
@@ -111,6 +124,8 @@ const Product = () => {
                                                     {productDetails.description.material}
                                                 </td>
                                             </tr>
+                                            : null}
+                                            {productDetails.description.length?.length > 0 ?
                                             <tr className="even:bg-gray-100">
                                                 <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-md font-medium text-gray-900 sm:pl-3">
                                                     Length
@@ -119,6 +134,8 @@ const Product = () => {
                                                     {productDetails.description.length}
                                                 </td>
                                             </tr>
+                                            : null}
+                                            {productDetails.description.conductor_type?.length > 0 ?
                                             <tr className="even:bg-gray-100">
                                                 <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-md font-medium text-gray-900 sm:pl-3">
                                                     Conductor Type
@@ -127,6 +144,8 @@ const Product = () => {
                                                     {productDetails.description.conductor_type}
                                                 </td>
                                             </tr>
+                                            : null}
+                                            {productDetails.description.packaging_type?.length > 0 ?
                                             <tr className="even:bg-gray-100">
                                                 <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-md font-medium text-gray-900 sm:pl-3">
                                                     Packaging Type
@@ -135,6 +154,8 @@ const Product = () => {
                                                     {productDetails.description.packaging_type}
                                                 </td>
                                             </tr>
+                                            : null}
+                                            {productDetails.description.surface_treatment?.length > 0 ?
                                             <tr className="even:bg-gray-100">
                                                 <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-md font-medium text-gray-900 sm:pl-3">
                                                     Surface Treatment
@@ -143,6 +164,8 @@ const Product = () => {
                                                     {productDetails.description.surface_treatment}
                                                 </td>
                                             </tr>
+                                            : null}
+                                            {productDetails.description.temperature_range?.length > 0 ?
                                             <tr className="even:bg-gray-100">
                                                 <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-md font-medium text-gray-900 sm:pl-3">
                                                     Temperature Range (Degree Celsius)
@@ -151,6 +174,8 @@ const Product = () => {
                                                     {productDetails.description.temperature_range}
                                                 </td>
                                             </tr>
+                                            : null}
+                                            {productDetails.description.voltage?.length > 0 ?
                                             <tr className="even:bg-gray-100">
                                                 <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-md font-medium text-gray-900 sm:pl-3">
                                                     Voltage (Volt)
@@ -159,6 +184,8 @@ const Product = () => {
                                                     {productDetails.description.voltage}
                                                 </td>
                                             </tr>
+                                            : null}
+                                            {productDetails.description.power?.length > 0 ?
                                             <tr className="even:bg-gray-100">
                                                 <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-md font-medium text-gray-900 sm:pl-3">
                                                     Power
@@ -167,6 +194,8 @@ const Product = () => {
                                                     {productDetails.description.power}
                                                 </td>
                                             </tr>
+                                            : null}
+                                            {productDetails.description.diameter?.length > 0 ?
                                             <tr className="even:bg-gray-100">
                                                 <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-md font-medium text-gray-900 sm:pl-3">
                                                     Diameter
@@ -175,6 +204,97 @@ const Product = () => {
                                                     {productDetails.description.diameter}
                                                 </td>
                                             </tr>
+                                            : null}
+                                            {productDetails.description.tensile_strength?.length > 0 ?
+                                            <tr className="even:bg-gray-100">
+                                                <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-md font-medium text-gray-900 sm:pl-3">
+                                                    Tensile strength
+                                                </th>
+                                                <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-500 sm:pl-3">
+                                                    {productDetails.description.tensile_strength}
+                                                </td>
+                                            </tr>
+                                            : null}
+                                            {productDetails.description.insulation_material?.length > 0 ?
+                                            <tr className="even:bg-gray-100">
+                                                <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-md font-medium text-gray-900 sm:pl-3">
+                                                    Insulation Material
+                                                </th>
+                                                <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-500 sm:pl-3">
+                                                    {productDetails.description.insulation_material}
+                                                </td>
+                                            </tr>
+                                            : null}
+                                            {productDetails.description.reference_standards?.length > 0 ?
+                                            <tr className="even:bg-gray-100">
+                                                <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-md font-medium text-gray-900 sm:pl-3">
+                                                    Reference Standards
+                                                </th>
+                                                <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-500 sm:pl-3">
+                                                    {productDetails.description.reference_standards}
+                                                </td>
+                                            </tr>
+                                            : null}
+                                            {productDetails.description.available_sizes?.length > 0 ?
+                                            <tr className="even:bg-gray-100">
+                                                <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-md font-medium text-gray-900 sm:pl-3">
+                                                    Available Sizes
+                                                </th>
+                                                <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-500 sm:pl-3">
+                                                    {productDetails.description.available_sizes}
+                                                </td>
+                                            </tr>
+                                            : null}
+                                            {productDetails.description.insulation_class?.length > 0 ?
+                                            <tr className="even:bg-gray-100">
+                                                <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-md font-medium text-gray-900 sm:pl-3">
+                                                    Insulation Class
+                                                </th>
+                                                <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-500 sm:pl-3">
+                                                    {productDetails.description.insulation_class}
+                                                </td>
+                                            </tr>
+                                            : null}
+                                            {productDetails.description.thickness_variation?.length > 0 ?
+                                            <tr className="even:bg-gray-100">
+                                                <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-md font-medium text-gray-900 sm:pl-3">
+                                                Thickness Variation
+                                                </th>
+                                                <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-500 sm:pl-3">
+                                                    {productDetails.description.thickness_variation}
+                                                </td>
+                                            </tr>
+                                            : null}
+                                            {productDetails.description.size?.length > 0 ?
+                                            <tr className="even:bg-gray-100">
+                                                <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-md font-medium text-gray-900 sm:pl-3">
+                                                    Size
+                                                </th>
+                                                <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-500 sm:pl-3">
+                                                    {productDetails.description.size}
+                                                </td>
+                                            </tr>
+                                            : null}
+                                            {productDetails.description.heat_resistance?.length > 0 ?
+                                            <tr className="even:bg-gray-100">
+                                                <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-md font-medium text-gray-900 sm:pl-3">
+                                                    Heat Resistance
+                                                </th>
+                                                <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-500 sm:pl-3">
+                                                    {productDetails.description.heat_resistance}
+                                                </td>
+                                            </tr>
+                                            : null}
+                                            {productDetails.description.image?.length > 0 ?
+                                            <tr className="even:bg-gray-100">
+                                                <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-md font-medium text-gray-900 sm:pl-3">
+                                                    Other Details
+                                                </th>
+                                                <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-500 sm:pl-3">
+                                                    <img className='border' src={productDetails.description.image} alt={productDetails.description.image} />
+                                                </td>
+                                            </tr>
+                                            : null}
                                         </tbody>
                                     </>
                                 ) : null}
@@ -184,6 +304,7 @@ const Product = () => {
                 </div>
                 <div className='md:grid md:grid-cols-2 gap-x-5 mx-2'>
                     {/* Add Features and innerSheth text  */}
+                    {productDetails.features?.length > 0 ?
                     <div className="md:grid-cols-1 mt-10 bg-gray-100 p-2">
                         <p className='text-lg font-medium text-gray-800 my-2'>Features:</p>
                         <ul className="list-disc pl-10">
@@ -192,8 +313,9 @@ const Product = () => {
                         ))}
                         </ul>
                     </div>
-
+                    : null}
                     {/* Inner Sheath Section */}
+                    {productDetails.innerSheath?.length > 0 ?
                     <div className="md:grid-cols-1 mt-10 bg-gray-100 p-2">
                         <p className='text-lg font-medium text-gray-800 my-2'>Inner Sheath:</p>
                         <ul className="list-disc pl-10">
@@ -202,9 +324,11 @@ const Product = () => {
                         ))}
                         </ul>
                     </div>
+                    : null}
                 </div>
                 <div className='md:grid md:grid-cols-2 gap-x-5 mx-2'>
                     {/* Add Features and innerSheth text  */}
+                    {productDetails.additionalFeature?.length > 0 ?
                     <div className="md:grid-cols-1 mt-10 bg-gray-100 p-2">
                         <p className='text-lg font-medium text-gray-800 my-2'>Additional Features:</p>
                         <ul className="list-disc pl-10">
@@ -213,8 +337,9 @@ const Product = () => {
                         ))}
                         </ul>
                     </div>
-
+                    : null}
                     {/* Inner Sheath Section */}
+                    {productDetails.additionalInnerSheath?.length > 0 ?
                     <div className="md:grid-cols-1 mt-10 bg-gray-100 p-2">
                         <p className='text-lg font-medium text-gray-800 my-2'>Additional Inner Sheath:</p>
                         <ul className="list-disc pl-10">
@@ -223,6 +348,7 @@ const Product = () => {
                         ))}
                         </ul>
                     </div>
+                    : null}
                 </div>
             </div>
           </div>
