@@ -5,8 +5,10 @@ import Footer from "../../components/footer/Footer";
 const Layout = () => {
   return (
     <>
-      <Navbar />
-      <Outlet />
+      <Navbar/>
+      <div className="pt-[72px]">
+        <Outlet />
+      </div>
       <Footer />
     </>
   );
