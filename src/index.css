@@ -3,15 +3,15 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'popins';
-  src: local('popins'), url('./assets/fonts/Poppins-Medium.ttf') format('woff');
+  font-family: "popins";
+  src: local("popins"), url("./assets/fonts/Poppins-Medium.ttf") format("woff");
 }
 
-*{
-    margin: 0%;
-    padding: 0%;
-    box-sizing: border-box;
-    font-family: "popins";
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+  font-family: "popins";
 }
 
 .no-focus-outline:focus {
@@ -22,10 +22,10 @@
   color: #d48442;
 } */
 
-.active{
+.active {
   --tw-text-opacity: 1;
   --tw-bg-opacity: 1;
-  color: #EDDDE7 !important;
+  color: #eddde7 !important;
   background-color: rgb(126 34 206 / var(--tw-bg-opacity)) !important;
 }
 
@@ -57,7 +57,7 @@
   top: -7px;
 }
 
-.accordion-backgroun{
+.accordion-backgroun {
   /* background-image: url('./assets//images//accordion-bg.jpg'); */
 }
 
@@ -66,76 +66,76 @@
 }
 @media (min-width: 640px) {
   .container {
-      max-width: 640px;
+    max-width: 640px;
   }
 }
 @media (min-width: 768px) {
   .container {
-      max-width: 768px;
+    max-width: 768px;
   }
 }
 @media (min-width: 1024px) {
   .container {
-      max-width: 1024px;
+    max-width: 1024px;
   }
 }
 @media (min-width: 1280px) {
   .container {
-      max-width: 1280px;
+    max-width: 1280px;
   }
 }
 @media (min-width: 1536px) {
   .container {
-      max-width: 1536px;
+    max-width: 1536px;
   }
 }
 
 /* ------------------------------------ */
 
-.top-to-btm{
+.top-to-btm {
   position: relative;
 }
 
-.icon-position{
+.icon-position {
   position: fixed;
-  bottom: 40px;
+  bottom: 25px;
   right: 25px;
-  z-index: 20;
+  z-index: 1000;
 }
 
-.icon-style{
-  background-color: #268F82;
+.icon-style {
+  background-color: #2f3c7e;
   border: 2px solid #fff;
   border-radius: 50%;
   height: 50px;
   width: 50px;
   color: #fff;
   cursor: pointer;
-  animation: movebtn 3s ease-in-out infinite;
-  transition: all .5s ease-in-out;
+  animation: movebtn 4s ease-in-out infinite;
+  transition: all 0.5s ease-in-out;
 }
 
-.icon-style:hover{
+.icon-style:hover {
   animation: none;
   background: #fff;
-  color: #268F82;
-  border: 2px solid #268F82;
+  color: #2f3c7e;
+  border: 2px solid #2f3c7e;
 }
 
 @keyframes movebtn {
-  0%{
+  0% {
     transform: translateY(0px);
   }
-  25%{
-    transform: translateY(20px);
+  25% {
+    transform: translateY(10px);
   }
-  50%{
+  50% {
     transform: translateY(0px);
   }
-  75%{
-    transform: translateY(-20px);
+  75% {
+    transform: translateY(10px);
   }
-  100%{
+  100% {
     transform: translateY(0px);
   }
 }

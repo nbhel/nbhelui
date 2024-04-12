@@ -1,35 +1,36 @@
-import React, { useState, useEffect } from 'react';
-import { FaAngleUp } from 'react-icons/fa';
+import { useEffect, useState } from "react";
+import { MdKeyboardArrowUp } from "react-icons/md";
 
 const ScrollToTop = () => {
-	const [showTopBtn, setShowTopBtn] = useState(false);
+  const [showTopBtn, setShowTopBtn] = useState<boolean>(false);
 
-	// changing the showTopBtn state whenever a scroll event happens
-	useEffect(() => {
-		window.addEventListener('scroll', () => {
-			if (window.scrollY > 400) {
-				setShowTopBtn(true);
-			} else {
-				setShowTopBtn(false);
-			}
-		});
-	}, []);
+  const goToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
 
-	// fucntion to help scroll to top smoothly
-	const goToTop = () => {
-		window.scrollTo({
-			top: 0,
-			behavior: 'smooth',
-		});
-	};
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 400) {
+        setShowTopBtn(true);
+      } else {
+        setShowTopBtn(false);
+      }
+    });
+  }, []);
 
-	return (
-		<div className="top-to-btm bg-black">
-			{showTopBtn && (
-				<FaAngleUp className="icon-position icon-style" onClick={goToTop} />
-			)}
-		</div>
-	);
+  return (
+    <div className="top-to-btm bg-black">
+      {showTopBtn && (
+        <MdKeyboardArrowUp
+          className="icon-position icon-style"
+          onClick={goToTop}
+        />
+      )}
+    </div>
+  );
 };
 
 export default ScrollToTop;
