@@ -25,8 +25,8 @@
 .active {
   --tw-text-opacity: 1;
   --tw-bg-opacity: 1;
-  color: #eddde7 !important;
-  background-color: rgb(126 34 206 / var(--tw-bg-opacity)) !important;
+  color: white !important;
+  background-color: #2F3C7E !important;
 }
 
 /* Navbar css */

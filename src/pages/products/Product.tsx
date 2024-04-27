@@ -50,7 +50,7 @@ const Product = () => {
     if (!productDetails) {
         // Handle case when productDetails is not available
         return <div className='flex justify-center items-center h-full'>
-                    <p className='text-2xl font-semibold text-purple-800'>No product details available.</p>
+                    <p className='text-2xl font-semibold text-primary'>No product details available.</p>
                 </div>;
       }
 
@@ -58,7 +58,7 @@ const Product = () => {
     <div className="bg-white">
       <div className="mx-auto px-4 py-6 sm:px-6 lg:px-8">
         <div className='mb-3'>
-            <p className='sm:text-2xl text-md font-semibold  bg-purple-700 text-[#EDDDE7] shadow-md p-3 rounded-sm'>{productDetails?.title}</p>
+            <p className='sm:text-2xl text-md font-semibold  bg-primary text-white shadow-md p-3 rounded-sm'>{productDetails?.title}</p>
         </div>
         <div className="flex justify-center gap-x-12 py-6 border border-gray-100 shadow-sm my-3 bg-gray-100">
           {productDetails?.images.map((image:any, index:number) => (
@@ -70,9 +70,9 @@ const Product = () => {
 
         {/* Product form */}
         <div className="border border-gray-100 shadow-md bg-gray-100 py-6">
-          <div className='flex justify-center items-center'>
+          {/* <div className='flex justify-center items-center'>
             <button className='p-3 bg-[#268F82] text-white border border-[#268F82] hover:bg-white hover:text-[#268F82] rounded-lg'>Get Quotation</button>
-          </div>
+          </div> */}
           <div>
             <div className="mt-8 flow-root">
                 <p className='font-bold text-xl p-2'>Product Details: </p>

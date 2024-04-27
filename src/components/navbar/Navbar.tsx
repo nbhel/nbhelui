@@ -1,11 +1,12 @@
 import React, { Fragment, useState } from "react";
-import Logo from "../../assets/images/Black White Minimalist Logo1.jpg";
+import Logo from "../../assets/images/Black White Minimalist Logo.png";
 import MenuItems from "./MenuItems";
 import { menuItems } from "../../helper/menuItems";
 import { Dialog, Disclosure, Tab, Transition } from "@headlessui/react";
 import { XMarkIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useNavigate } from "react-router-dom";
 import Button from "../button/Button";
+import { ROUTES } from "../../constant/route";
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
@@ -13,6 +14,8 @@ function classNames(...classes: string[]) {
 
 const App = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
+
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen);
@@ -74,7 +77,7 @@ const App = () => {
                               <NavLink
                                 to={item.url}
                                 key={item.title}
-                                className="w-full p-2 rounded-sm hover:bg-purple-700 hover:text-[#EDDDE7]"
+                                className="w-full p-2 rounded-sm hover:bg-purple-700 hover:text-white"
                               >
                                 {item.title}
                               </NavLink>
@@ -86,9 +89,9 @@ const App = () => {
                                       className={classNames(`
                                        ${
                                          open
-                                           ? "bg-purple-700 text-[#EDDDE7]"
+                                           ? "bg-purple-700 text-white"
                                            : ""
-                                       } flex item-center hover:bg-purple-700 hover:text-[#EDDDE7] w-full text-left rounded-sm px-1 py-2 gap-x-3 text-base leading-6 font-medium text-gray-700'
+                                       } flex item-center hover:bg-purple-700 hover:text-white w-full text-left rounded-sm px-1 py-2 gap-x-3 text-base leading-6 font-medium text-gray-700'
                                       `)}
                                     >
                                       <NavLink to={item.url}>
@@ -97,7 +100,7 @@ const App = () => {
                                       <ChevronRightIcon
                                         className={classNames(
                                           open
-                                            ? "rotate-90 text-[#EDDDE7]"
+                                            ? "rotate-90 text-white"
                                             : "text-gray-400",
                                           "my-auto ml-auto h-5 w-5 shrink-0"
                                         )}
@@ -129,16 +132,16 @@ const App = () => {
                                                       className={classNames(
                                                         ` ${
                                                           open
-                                                            ? "bg-purple-700 text-[#EDDDE7]"
+                                                            ? "bg-purple-700 text-white"
                                                             : ""
-                                                        } rounded-sm flex items-center w-full text-left px-1 py-3 gap-x-3 text-sm font-medium  hover:bg-purple-700 hover:text-[#EDDDE7]`
+                                                        } rounded-sm flex items-center w-full text-left px-1 py-3 gap-x-3 text-sm font-medium  hover:bg-purple-700 hover:text-white`
                                                       )}
                                                     >
                                                       {subItem.title}
                                                       <ChevronRightIcon
                                                         className={classNames(
                                                           open
-                                                            ? "rotate-90 text-[#EDDDE7]"
+                                                            ? "rotate-90 text-white"
                                                             : "text-gray-400",
                                                           "ml-auto h-5 w-5 shrink-0 flex items-center"
                                                         )}
@@ -153,7 +156,7 @@ const App = () => {
                                                         ) => (
                                                           <li
                                                             key={`subProduct-${index}`}
-                                                            className="flex-1 items-center whitespace-normal overflow-hidden px-3 py-3 text-sm font-medium text-black hover:text-[#EDDDE7] hover:bg-purple-700 bg-[#B2A0E9] "
+                                                            className="flex-1 items-center whitespace-normal overflow-hidden px-3 py-3 text-sm font-medium text-black hover:text-white hover:bg-purple-700 bg-[#B2A0E9] "
                                                           >
                                                             <Link
                                                               to={
@@ -200,13 +203,19 @@ const App = () => {
                 </span>
               </Link>
               <div className="flex items-center lg:order-2">
-                <Link
+                {/* <Link
                   to="/"
                   className="text-gray-800 hover:bg-[#268F82] hover:text-white focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2"
                 >
                   Help
-                </Link>
-                <Button title="Download" type="dark" />
+                </Link> */}
+                <div className="mx-2">
+                  <Button
+                    title="Get a Quote"
+                    type="dark"
+                    onClick={() => navigate(ROUTES.CONTACT)}
+                  />
+                </div>
                 <button
                   onClick={toggleMenu}
                   data-collapse-toggle="mobile-menu-2"

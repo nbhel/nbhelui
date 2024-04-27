@@ -1,4 +1,4 @@
-import Logo from "../../assets/images/Black White Minimalist Logo1.jpg";
+import Logo from "../../assets/images/footer_logo.png";
 import { Link } from "react-router-dom";
 import { menuItems } from "../../helper/menuItems";
 import { useEffect, useState } from "react";
@@ -25,7 +25,7 @@ const Footer = () => {
     });
   };
   return (
-    <footer className="bg-white border-t border-gray-100">
+    <footer className="bg-gray-100 border-t border-gray-100">
       <div className="mx-auto mt-10">
         <div>
           <div className="text-center">
@@ -36,7 +36,7 @@ const Footer = () => {
                   className="h-6 sm:h-8"
                   alt="New Balahanuman Electricals Logo"
                 />
-                <span className="self-center text-md font-medium whitespace-nowrap text-gray-500">
+                <span className="self-center text-md font-semibold whitespace-nowrap text-primary">
                   New Balahanuman Electricals
                 </span>
               </Link>

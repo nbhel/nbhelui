@@ -1,4 +1,4 @@
-import feature2 from "../../src/assets/images/features22.jpg";
+import feature2 from "../../src/assets/images/features22.svg";
 import feature1 from "../../src/assets/images/featuresss1.svg";
 
 export const aboutCollection = [
@@ -41,7 +41,7 @@ export const aboutCollection = [
       },
     ],
     subContentB:
-      "Deliver great service experiences fast - without the complexity of traditional ITSM solutions.",
+      "Ensuring top-notch service and customer satisfaction through rigorous quality assurance protocols at New Balahanuman Electricals.",
     image: feature2,
     imageSide: "left",
   },

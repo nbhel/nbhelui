@@ -6,8 +6,10 @@ import SubContent from "../subcontent/SubContent";
 const OurClient = () => {
   return (
     <>
-      <section className="bg-white border">
-        <SubHeading title="Trusted By Known Partners" />
+      <section className="bg-gray-100">
+        <div className="flex items-center justify-center pt-8 lg:pt-16">
+          <SubHeading title="Trusted By Known Partners" />
+        </div>
         <SubContent
           title="Veniam quis nostrud exercitation ullamco laboris nisi ut aliquip exa aute irure dolor reprehenderit in voluptate velit dolore magna aliqua ut enim ad minim"
           lgSize="xl"
