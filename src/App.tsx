@@ -4,7 +4,7 @@ import Template from "./template/Template";
 const App = () => {
   return (
     <>
-      <ScrollToTop/>
+      <ScrollToTop />
       <Template />
     </>
   );

@@ -111,7 +111,7 @@ const ProductDetails = () => {
 
             {/* Sort */}
             <div className="">
-               <button className='bg-[#268F82] p-2 text-white hover:border border-[#268F82] hover:bg-white hover:text-[#268F82] rounded-lg'>Get Quote</button>
+               {/* <button className='bg-[#268F82] p-2 text-white hover:border border-[#268F82] hover:bg-white hover:text-[#268F82] rounded-lg'>Get Quote</button> */}
                 <button
                 type="button"
                 className="-m-2 ml-4 p-2 text-gray-400 hover:text-gray-500 sm:ml-6 lg:hidden"
@@ -133,10 +133,10 @@ const ProductDetails = () => {
                       <>
                         <h3 className="-my-3 flow-root">
                             <Disclosure.Button 
-                                className={`${open ? 'bg-purple-700 text-[#EDDDE7]' : 'text-gray-500'} flex w-full items-center justify-between py-5 px-1 text-sm`}
+                                className={`${open ? 'bg-primary text-white' : 'text-gray-500'} flex w-full items-center justify-between py-5 px-1 text-sm`}
                                 onClick={() => setSelectedSubmenu(open ? null : section)}
                             >
-                            <span className={`font-medium text-sm ${open ? 'text-[#EDDDE7]' : 'text-gray-600'}`}>{section.title}</span>
+                            <span className={`font-medium text-sm ${open ? 'text-white' : 'text-gray-600'}`}>{section.title}</span>
                             <span className="ml-6 flex items-center">
                               {open ? (
                                 <MinusIcon className="h-5 w-5" aria-hidden="true" />
@@ -146,16 +146,16 @@ const ProductDetails = () => {
                             </span>
                           </Disclosure.Button>
                         </h3>
-                        <Disclosure.Panel className={`py-2 ${open ? 'bg-[#B2A0E9]' : ''}`}>
+                        <Disclosure.Panel className={`py-2 ${open ? 'bg-gray-200' : ''}`}>
                           <div className="">
                             {section.submenu.map((option: any) => (
-                              <div key={option.url} className="flex items-center pe-2">
+                              <div key={option.url} className="flex items-center">
                                 <Link
                                   to={option.url}
-                                  className={`ml-2 py-3 text-sm px-1 w-full ${open ? 'text-black hover:bg-purple-700 hover:text-[#EDDDE7]' : ' text-gray-600'}`}
+                                  className={`py-3 text-sm px-1 w-full flex items-center ${open ? 'text-black hover:bg-primary hover:text-white' : ' text-gray-600'}`}
                                   onClick={() => handleClickGetSubMenuItem(option.url)}
                                 >
-                                  {option.title}
+                                  <span className='text-base mx-1'>&gt;</span>{option.title}
                                 </Link>
                               </div>
                             ))}
