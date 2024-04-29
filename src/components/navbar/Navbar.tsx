@@ -77,7 +77,7 @@ const App = () => {
                               <NavLink
                                 to={item.url}
                                 key={item.title}
-                                className="w-full p-2 rounded-sm hover:bg-purple-700 hover:text-white"
+                                className="w-full p-2 rounded-sm hover:bg-primary hover:text-white"
                               >
                                 {item.title}
                               </NavLink>
@@ -89,9 +89,9 @@ const App = () => {
                                       className={classNames(`
                                        ${
                                          open
-                                           ? "bg-purple-700 text-white"
+                                           ? "bg-primary text-white"
                                            : ""
-                                       } flex item-center hover:bg-purple-700 hover:text-white w-full text-left rounded-sm px-1 py-2 gap-x-3 text-base leading-6 font-medium text-gray-700'
+                                       } flex item-center hover:bg-primary hover:text-white w-full text-left rounded-sm px-1 py-2 gap-x-3 text-base leading-6 font-medium text-gray-700'
                                       `)}
                                     >
                                       <NavLink to={item.url}>
@@ -132,9 +132,9 @@ const App = () => {
                                                       className={classNames(
                                                         ` ${
                                                           open
-                                                            ? "bg-purple-700 text-white"
+                                                            ? "bg-primary text-white"
                                                             : ""
-                                                        } rounded-sm flex items-center w-full text-left px-1 py-3 gap-x-3 text-sm font-medium  hover:bg-purple-700 hover:text-white`
+                                                        } rounded-sm flex items-center w-full text-left px-1 py-3 gap-x-3 text-sm font-medium  hover:bg-primary hover:text-white`
                                                       )}
                                                     >
                                                       {subItem.title}
@@ -148,7 +148,7 @@ const App = () => {
                                                         aria-hidden="true"
                                                       />
                                                     </Disclosure.Button>
-                                                    <Disclosure.Panel as="ul">
+                                                    <Disclosure.Panel as="ul" className={'mt-1'}>
                                                       {subItem.submenu.map(
                                                         (
                                                           subProduct,
@@ -156,7 +156,7 @@ const App = () => {
                                                         ) => (
                                                           <li
                                                             key={`subProduct-${index}`}
-                                                            className="flex-1 items-center whitespace-normal overflow-hidden px-3 py-3 text-sm font-medium text-black hover:text-white hover:bg-purple-700 bg-[#B2A0E9] "
+                                                            className="flex-1 items-center whitespace-normal overflow-hidden px-3 py-3 text-sm font-medium text-black hover:text-white hover:bg-primary bg-gray-100"
                                                           >
                                                             <Link
                                                               to={
@@ -195,21 +195,21 @@ const App = () => {
 
         <header className="fixed w-full z-40 shadow-sm">
           <nav className="bg-white border-gray-200 py-2.5">
-            <div className="flex flex-wrap items-center sm:justify-between justify-center max-w-screen-xl px-4 mx-auto">
+            <div className="flex flex-wrap items-center justify-between max-w-screen-xl px-4 mx-auto">
               <Link to="/" className="flex items-center">
                 <img src={Logo} className="h-6 sm:h-12" alt="Landwind Logo" />
                 <span className="self-center text-sm sm:text-lg font-medium whitespace-nowrap text-black">
                   New Balahanuman Electricals
                 </span>
               </Link>
-              <div className="flex items-center lg:order-2">
+              <div className="flex items-center lg:order-2 sm:order-1 justify-between">
                 {/* <Link
                   to="/"
                   className="text-gray-800 hover:bg-[#268F82] hover:text-white focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2"
                 >
                   Help
                 </Link> */}
-                <div className="mx-2">
+                <div className="mx-2 sm:flex hidden">
                   <Button
                     title="Get a Quote"
                     type="dark"

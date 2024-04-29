@@ -2,7 +2,7 @@ import { Fragment, useEffect, useState } from 'react'
 import { Dialog, Disclosure, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { FunnelIcon, MinusIcon, PlusIcon } from '@heroicons/react/20/solid'
-import { Link, useLocation, useNavigate, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { subDetailsMenu } from '../../helper/menuItems'
 import Product from './Product'
 
@@ -19,8 +19,8 @@ const ProductDetails = () => {
 
   const handleClickGetSubMenuItem = (id: any) => {
     navigate(`/product/${id}`);
+    setMobileFiltersOpen(false)
   }
-  const location = useLocation();
   return (
     <div className="bg-white" id='product'>
       <div>
@@ -49,7 +49,7 @@ const ProductDetails = () => {
                 leaveFrom="translate-x-0"
                 leaveTo="translate-x-full"
               >
-                <Dialog.Panel className="relative ml-auto flex h-full w-full max-w-xs flex-col overflow-y-auto bg-white py-4 pb-12 shadow-xl">
+                <Dialog.Panel className="relative ml-auto flex h-full w-full max-w-sm flex-col overflow-y-auto bg-white py-4 pb-12 shadow-xl">
                   <div className="flex items-center justify-between px-4">
                     <h2 className="text-lg font-medium text-gray-900">Products</h2>
                     <button
@@ -64,12 +64,12 @@ const ProductDetails = () => {
 
                   <form className="mt-4 border-t border-gray-200">
                     {subDetailsMenu?.map((section: any) => (
-                      <Disclosure as="div" key={`sub-${section.url}`} className="border-t border-gray-200 px-4 py-6">
+                      <Disclosure as="div" key={`sub-${section.url}`} className="border-t border-gray-200 p-3">
                         {({ open }) => (
                           <>
-                            <h3 className="-mx-2 -my-3 flow-root">
-                              <Disclosure.Button className="flex w-full items-center justify-between bg-white px-2 py-3 text-gray-400 hover:text-gray-500">
-                                <span className="font-medium text-xs text-gray-900">{section.title}</span>
+                            <h3 className="flow-root">
+                              <Disclosure.Button className={`${open ? 'bg-primary text-white' : 'text-gray-500'} flex w-full items-center justify-between px-2 py-3`}>
+                                <span className={`font-medium text-sm text-left ${open ? 'text-white' : 'text-gray-900'}`}>{section.title}</span>
                                 <span className="ml-6 flex items-center">
                                   {open ? (
                                     <MinusIcon className="h-5 w-5" aria-hidden="true" />
@@ -79,13 +79,13 @@ const ProductDetails = () => {
                                 </span>
                               </Disclosure.Button>
                             </h3>
-                            <Disclosure.Panel className="pt-6">
-                              <div className="space-y-6">
+                            <Disclosure.Panel className="pt-1">
+                              <div className="space-y-2 bg-gray-100">
                                 {section.submenu.map((option: any) => (
                                   <div key={option.url} className="flex items-center">
                                     <Link
                                         to={option.url}
-                                        className="ml-3 text-xs text-gray-600"
+                                        className={`py-3 text-xs px-2 mx-2 w-full flex items-center text-left ${open ? 'text-black hover:bg-primary hover:text-white' : ' text-gray-600'}`}
                                         onClick={() => handleClickGetSubMenuItem(option.url)}
                                     >
                                         {option.title}
@@ -136,7 +136,7 @@ const ProductDetails = () => {
                                 className={`${open ? 'bg-primary text-white' : 'text-gray-500'} flex w-full items-center justify-between py-5 px-1 text-sm`}
                                 onClick={() => setSelectedSubmenu(open ? null : section)}
                             >
-                            <span className={`font-medium text-sm ${open ? 'text-white' : 'text-gray-600'}`}>{section.title}</span>
+                            <span className={`font-medium text-sm text-left ${open ? 'text-white' : 'text-gray-600'}`}>{section.title}</span>
                             <span className="ml-6 flex items-center">
                               {open ? (
                                 <MinusIcon className="h-5 w-5" aria-hidden="true" />
@@ -152,10 +152,10 @@ const ProductDetails = () => {
                               <div key={option.url} className="flex items-center">
                                 <Link
                                   to={option.url}
-                                  className={`py-3 text-sm px-1 w-full flex items-center ${open ? 'text-black hover:bg-primary hover:text-white' : ' text-gray-600'}`}
+                                  className={`py-3 text-sm px-3 mx-2 w-full flex items-center text-left ${open ? 'text-black hover:bg-primary hover:text-white' : ' text-gray-600'}`}
                                   onClick={() => handleClickGetSubMenuItem(option.url)}
                                 >
-                                  <span className='text-base mx-1'>&gt;</span>{option.title}
+                                  {option.title}
                                 </Link>
                               </div>
                             ))}

@@ -8,7 +8,7 @@ const TheSmartManCompany = () => {
           <div className="h-full w-full clear-both block">
             <section className="relative pt-28 px-0 pb-0 ">
               <div className="static max-w-screen-xl px-4 mx-auto">
-                <div className="flex-wrap -mx-4 grid grid-cols-2">
+                <div className="flex-wrap -mx-4 grid sm:grid-cols-2">
                   <div className="relative mb-12">
                     <div>
                       <div className="relative mb-10 z-10 h2_state_line">

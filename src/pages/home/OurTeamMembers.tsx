@@ -1,5 +1,7 @@
 import { FaLinkedin, FaGooglePlus, FaFacebook, FaTwitter } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import vinit_images from "../../assets/images/vinit_image.png"
+
 
 const OurTeamMembers = () => {
   return (
@@ -17,18 +19,18 @@ const OurTeamMembers = () => {
           {[...Array(3)].map((_, index) => (
             <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden">
               <img
-                src="https://php7.commonsupport.com/smartman/wp-content/uploads/2019/06/team-2.jpg.webp"
+                src={vinit_images}
                 alt="team member"
-                className="w-full h-auto"
+                className="w-auto h-96 mx-auto"
               />
               <div className="p-6">
                 <div className="text-center">
                   <h4 className="text-xl font-semibold text-[#1a2940] mb-1">
                     <Link to="#" className="text-[#1a2940] hover:text-[#df6512] transition-colors duration-300">
-                      George Daniel
+                      Vineet Gohel
                     </Link>
                   </h4>
-                  <p className="text-sm text-[#999] uppercase mb-3">Plumber</p>
+                  <p className="text-sm text-[#999] uppercase mb-3">Director</p>
                 </div>
                 <ul className="flex justify-center mb-3">
                   <li className="mx-2">

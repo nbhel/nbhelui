@@ -22,7 +22,7 @@ const DoYouLikeOurService = () => {
             </div>
           </div>
           <div
-            className="relative text-center block text-4xl text-[#f79d2b] font-medium"
+            className="relative text-center block sm:text-4xl text-3xl text-[#f79d2b] font-medium"
             style={{ fontFamily: "sans-serif" }}
           >
             Just Dial

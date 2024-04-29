@@ -56,14 +56,14 @@ const Product = () => {
 
   return (
     <div className="bg-white">
-      <div className="mx-auto px-4 py-6 sm:px-6 lg:px-8">
+      <div className="mx-auto px-2 sm:px-6 lg:px-8">
         <div className='mb-3'>
             <p className='sm:text-2xl text-md font-semibold  bg-primary text-white shadow-md p-3 rounded-sm'>{productDetails?.title}</p>
         </div>
-        <div className="flex justify-center gap-x-12 py-6 border border-gray-100 shadow-sm my-3 bg-gray-100">
+        <div className="sm:flex sm:justify-center gap-10 sm:px-0 px-6 py-6 border border-gray-100 shadow-sm my-3 bg-gray-100">
           {productDetails?.images.map((image:any, index:number) => (
             <div key={index} className="max-w-md rounded-lg">
-              <img src={image} alt={`Product ${index + 1}`} className="h-full w-full object-contain border border-gray-100 p-2 shadow-sm bg-white" />
+              <img src={image} alt={`Product ${index + 1}`} className="h-full w-full object-contain border border-gray-100 p-2 shadow-sm bg-white sm:py-0 my-6" />
             </div>
           ))}
         </div>
