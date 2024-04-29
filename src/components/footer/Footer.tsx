@@ -65,13 +65,13 @@ const Footer = () => {
           </div>
         </div>
         <hr className="mt-5" />
-        <div className="flex justify-between items-center p-3 bg-gray-100">
+        <div className="lg:flex justify-between items-center p-3 bg-gray-100">
           <p className="text-center text-xs leading-5 text-gray-500">
             &copy; {new Date().getFullYear()} New Balahanuman Electricals, Inc.
             All rights reserved.
           </p>
           <nav
-            className="columns-2 sm:flex sm:justify-center sm:space-x-6"
+            className="columns-2 flex justify-center sm:space-x-6 space-x-3"
             aria-label="Footer"
           >
             {menuItems.map((item) => (

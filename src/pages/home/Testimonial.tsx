@@ -11,7 +11,7 @@ const Testimonial = () => {
         className="relative w-full"
         data-carousel="slide"
       >
-        <div className="relative h-56 overflow-hidden rounded-lg md:h-96">
+        <div className="relative h-80 overflow-hidden rounded-lg md:h-96">
           {TestimonialData.map((slideItem, slideIndex) => (
             <React.Fragment key={slideItem.id}>
               <div

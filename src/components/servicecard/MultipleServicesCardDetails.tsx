@@ -10,9 +10,9 @@ const MultipleServicesCardDetails = () => {
         <div className="static max-w-screen-xl py-0 px-4 mx-auto">
           <div className="relative z-10 mb-14 text-center">
             <span className="block text-sm text-[#999] font-normal mb-2 uppercase">
-              The SmartMan Company
+              New Balahanuman Electricals
             </span>
-            <h2 className="block text-4xl text-[#1a2940] font-bold">
+            <h2 className="block sm:text-4xl text-3xl text-[#1a2940] font-bold">
               Best HandyMan Services
             </h2>
             <div className="text-base text-[#555] font-light mt-5 leading-8">

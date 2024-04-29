@@ -3,10 +3,10 @@ import Template from "./template/Template";
 
 const App = () => {
   return (
-    <>
+    <div>
       <ScrollToTop />
       <Template />
-    </>
+    </div>
   );
 };
 

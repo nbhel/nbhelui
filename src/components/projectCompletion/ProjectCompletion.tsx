@@ -9,7 +9,7 @@ const ProjectCompletion = () => {
     <div className="my-28 max-w-screen-xl mx-auto">
       <div className="relative">
         <div className="relative mb-14">
-          <div className="relative pl-32">
+          <div className="relative lg:px-32 px-16">
             <div className="relative flex justify-center items-center text-center overflow-hidden">
               {/* <img
                 src={home_icon}
@@ -18,7 +18,7 @@ const ProjectCompletion = () => {
               /> */}
               <IoHome className="relative h-20 w-20 leading-[90px] transition-all duration-300 ease-in text-secondary mb-5" />
             </div>
-            <div className="grid grid-cols-3 gap-20">
+            <div className="grid lg:grid-cols-3 xl:gap-20 gap-10">
               <div className="relative py-20 px-4 text-center shadow-2xl bg-white transition-all duration-300 ease-in">
                 <div className="absolute left-0 top-0 w-full h-full flex justify-center">
                   <img
