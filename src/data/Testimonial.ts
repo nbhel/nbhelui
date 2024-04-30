@@ -3,10 +3,7 @@ import Steve_jobs from "../../src/assets/images/Steve Jobs.jpg";
 export const TestimonialData = [
   {
     id: 1,
-    message: `"Your work is going to fill a large part of your life, and
-        the only way to be truly satisfied is to do what you
-        believe is great work. And the only way to do great work
-        is to love what you do."`,
+    message: `"Your work is a significant part of life, and true satisfaction comes from doing what you believe is great—loving what you do leads to great work."`,
     image: Steve_jobs,
     name: "John Doe",
     role: "Marketing Manager",

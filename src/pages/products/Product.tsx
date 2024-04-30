@@ -63,7 +63,7 @@ const Product = () => {
         <div className="sm:flex sm:justify-center gap-10 sm:px-0 px-6 py-6 border border-gray-100 shadow-sm my-3 bg-gray-100">
           {productDetails?.images.map((image:any, index:number) => (
             <div key={index} className="max-w-md rounded-lg">
-              <img src={image} alt={`Product ${index + 1}`} className="h-full w-full object-contain border border-gray-100 p-2 shadow-sm bg-white sm:py-0 my-6" />
+              <img src={image} alt={`Product ${index + 1}`} className="h-full w-full object-contain border border-gray-100 p-2 shadow-sm bg-white sm:py-0 my-0" />
             </div>
           ))}
         </div>
